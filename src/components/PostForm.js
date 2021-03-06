@@ -51,4 +51,10 @@ export class PostForm extends Component {
 }
 const mapStateToProps = (state) => ({ posts: state.posts.items })
 
-export default connect(mapStateToProps, { createPosts })(PostForm)
+const mapDispatchToProps = (dispatch) => {
+	return {
+		createPosts: (data) => dispatch(createPosts(data)),
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostForm)
